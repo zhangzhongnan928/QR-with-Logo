@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QR Code Generator with Logo
 
-## Getting Started
+A simple, elegant web application that generates QR codes with custom logos embedded in the center. Built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Features
+
+- 🎨 Clean and modern UI with responsive design
+- 🔗 Generate QR codes from any URL
+- 🖼️ Upload and embed custom logos in the center
+- 📥 Download generated QR codes as PNG files
+- 🌙 Dark mode support
+- ✅ High error correction for reliable scanning
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **QR Generation:** qrcode (v1.5.4)
+- **Runtime:** Node.js 23.x
+
+## Installation
+
+1. Navigate to the project directory:
+   ```bash
+   cd qr-logo-generator
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build for production:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How to Use the App
 
-## Deploy on Vercel
+1. **Enter URL**: Input the destination URL you want the QR code to link to
+2. **Upload Logo**: Click "Choose File" to upload your logo image (PNG, JPG, etc.)
+3. **Generate**: Click "Generate QR Code" to create your custom QR code
+4. **Download**: Once generated, click "Download QR Code" to save the PNG file
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technical Details
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### QR Code Generation
+
+- **Error Correction Level**: High (H) - allows up to 30% of the QR code to be obscured
+- **QR Code Size**: 500x500 pixels
+- **Logo Size**: 20% of QR code dimensions (100x100 pixels)
+- **Logo Background**: White circular background with 8px padding for better contrast
+
+### File Structure
+
+```
+qr-logo-generator/
+├── app/
+│   ├── layout.tsx       # Root layout with metadata
+│   ├── page.tsx         # Main QR generator component
+│   └── globals.css      # Global styles
+├── package.json
+└── README.md
+```
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## License
+
+This project is open source and available for personal and commercial use.
+
+## Sources
+
+### Primary Documentation
+- **qrcode npm package** (v1.5.4): [npmjs.com/package/qrcode](https://www.npmjs.com/package/qrcode)
+  - Error correction levels and canvas API usage
+  - Retrieved: October 8, 2025
+  
+- **Next.js 15 Documentation**: [nextjs.org/docs](https://nextjs.org/docs)
+  - App Router, TypeScript configuration, and client components
+  - Retrieved: October 8, 2025
+
+- **Canvas API MDN**: [developer.mozilla.org/en-US/docs/Web/API/Canvas_API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+  - Image composition and drawing operations
+  - Retrieved: October 8, 2025
+
+### Implementation Guidelines
+- QR code error correction allows logos to cover ~20-25% of the code area
+- High error correction (Level H) chosen to maintain scannability with logo overlay
+- Logo positioned with circular white background to ensure QR code integrity
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
